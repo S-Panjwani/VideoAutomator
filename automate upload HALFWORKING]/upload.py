@@ -55,7 +55,7 @@ video_directory = r'C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\OUTPU
 youtube = authenticate_with_oauth(client_secrets_file)
 
 # Set the initial publish time (8 PM on June 30th, 2024)
-initial_publish_time = datetime(2024, 6, 30, 3, 0, 0)  # Adjusted for MST
+initial_publish_time = datetime(2024, 7, 1, 19, 0, 0)  # Adjusted for MST
 
 # Get list of all video files in the directory
 for i, filename in enumerate(os.listdir(video_directory)):
