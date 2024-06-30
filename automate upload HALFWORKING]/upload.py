@@ -25,13 +25,16 @@ def upload_video(youtube, file, title, description, category="22", tags=None, pr
         "status": {
             "privacyStatus": privacy_status,
             "publishAt": publish_at
+        },
+        "contentDetails": {
+            "selfDeclaredMadeForKids": False  # Set to False for "No, It's not made for kids"
         }
     }
 
     media = MediaFileUpload(file, chunksize=-1, resumable=True)
     
     request = youtube.videos().insert(
-        part="snippet,status",
+        part="snippet,status,contentDetails",  # Include contentDetails in the part parameter
         body=body,
         media_body=media
     )
@@ -52,7 +55,7 @@ video_directory = r'C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\OUTPU
 youtube = authenticate_with_oauth(client_secrets_file)
 
 # Set the initial publish time (8 PM on June 30th, 2024)
-initial_publish_time = datetime(2024, 6, 30, 3, 0, 0)  # YYYY, MM, DD, HH, MM, SS
+initial_publish_time = datetime(2024, 6, 30, 3, 0, 0)  # Adjusted for MST
 
 # Get list of all video files in the directory
 for i, filename in enumerate(os.listdir(video_directory)):
