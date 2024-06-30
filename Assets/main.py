@@ -8,9 +8,9 @@ from multiprocessing import Pool
 change_settings({"IMAGEMAGICK_BINARY": r"C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe"})  # Update with your ImageMagick path
 
 # Paths
-flags_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\afk-money-farm\Assets\Flags"
-templates_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\afk-money-farm\Assets\Templates"
-output_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\afk-money-farm\OUTPUT"
+flags_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\Assets\Flags"
+templates_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\Assets\Templates"
+output_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\OUTPUT"
 
 # Load Templates
 template_files = [os.path.join(templates_path, file) for file in os.listdir(templates_path) if file.endswith('.mp4')]
@@ -87,7 +87,7 @@ def get_next_video_id(output_path):
     return max(existing_ids) + 1
 
 # Number of videos 
-num_videos = 95
+num_videos = 50
 
 # Get the next available video ID
 next_video_id = get_next_video_id(output_path)
