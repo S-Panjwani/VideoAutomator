@@ -24,9 +24,7 @@ def upload_video(youtube, file, title, description, category="22", tags=None, pr
         },
         "status": {
             "privacyStatus": privacy_status,
-            "publishAt": publish_at
-        },
-        "contentDetails": {
+            "publishAt": publish_at,
             "selfDeclaredMadeForKids": False  # Set to False for "No, It's not made for kids"
         }
     }
@@ -34,7 +32,7 @@ def upload_video(youtube, file, title, description, category="22", tags=None, pr
     media = MediaFileUpload(file, chunksize=-1, resumable=True)
     
     request = youtube.videos().insert(
-        part="snippet,status,contentDetails",  # Include contentDetails in the part parameter
+        part="snippet,status",  # Removed contentDetails from the part parameter
         body=body,
         media_body=media
     )
@@ -54,8 +52,8 @@ video_directory = r'C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\OUTPU
 # Authenticate
 youtube = authenticate_with_oauth(client_secrets_file)
 
-# Set the initial publish time (8 PM on June 30th, 2024)
-initial_publish_time = datetime(2024, 7, 1, 19, 0, 0)  # Adjusted for MST
+# Set the initial publish time (6 PM on July 4th, 2024, MST converted to UTC)
+initial_publish_time = datetime(2024, 7, 7, 5, 0, 0)  # 6 PM MST is 1 AM UTC the next day
 
 # Get list of all video files in the directory
 for i, filename in enumerate(os.listdir(video_directory)):
@@ -64,7 +62,7 @@ for i, filename in enumerate(os.listdir(video_directory)):
         
         # Customize video details
         video_title = f"WHATS YOUR GEOGRAPHY LEVEL 💯💯🔴👇"
-        video_description = f"😎👍#flag #geography #geographyquiz #quiz #foryou #trending #easy #maps"
+        video_description = f"😎👍 #flag #geography #geographyquiz #quiz #foryou #trending #easy #maps"
         video_tags = ["geography", "geoquiz", "quiz", "country", "map", "geographyquiz", "easy", "foryou", "trending", "flag", "shorts"]
         video_category = "22"  # People & Blogs
         privacy_status = "private"  

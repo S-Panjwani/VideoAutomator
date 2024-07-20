@@ -11,12 +11,16 @@ change_settings({"IMAGEMAGICK_BINARY": r"C:\Program Files\ImageMagick-7.1.1-Q16-
 flags_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\Assets\Flags"
 templates_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\Assets\Templates"
 output_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\OUTPUT"
+required_flags_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\Assets\test"
 
 # Load Templates
 template_files = [os.path.join(templates_path, file) for file in os.listdir(templates_path) if file.endswith('.mp4')]
 
 # Load Flags
 flag_files = [os.path.join(flags_path, file) for file in os.listdir(flags_path) if file.endswith('.png')]
+
+# Load Required Flags
+required_flag_files = [os.path.join(required_flags_path, file) for file in os.listdir(required_flags_path)]
 
 # Optional: Adjust flag size manually (set to None if no resizing is needed)
 flag_size = None  # Example: (1080, 1920) for width, height adjustment
@@ -26,8 +30,16 @@ def create_video(params):
     template_file, video_id, text_fontsize = params
     template_clip = VideoFileClip(template_file)
 
-    # Randomly select three flags
-    selected_flags = random.sample(flag_files, 3)
+    # Randomly select two flags
+    selected_flags = random.sample(flag_files, 2)
+
+    # Ensure at least one required flag is included
+    if required_flag_files:
+        required_flag = random.choice(required_flag_files)
+        if required_flag not in selected_flags:
+            selected_flags.append(required_flag)
+            # Shuffle to avoid placing the required flag always in the same position
+            random.shuffle(selected_flags)
     
     # Define timestamps
     timestamps = [
@@ -87,16 +99,16 @@ def get_next_video_id(output_path):
     return max(existing_ids) + 1
 
 # Number of videos 
-num_videos = 25
+num_videos = 10
 
 # Get the next available video ID
 next_video_id = get_next_video_id(output_path)
 
 # Generate parameters for each video
-params = [(random.choice(template_files), i, 170) for i in range(next_video_id, next_video_id + num_videos)]  # Adjust the font size as needed
+params = [(random.choice(template_files), i, 170) for i in range(next_video_id, next_video_id + num_videos)]
 
 # Set the number of processes to run in parallel (fixed number)
-num_processes = 5  # Change this number to the desired number of parallel processes
+num_processes = 2  # Change this number to the desired number of parallel processes
 
 # Run the video generation in parallel
 if __name__ == '__main__':
