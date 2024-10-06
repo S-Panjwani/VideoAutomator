@@ -6,6 +6,7 @@ from multiprocessing import Pool
 
 # Set the path to the ImageMagick binary
 change_settings({"IMAGEMAGICK_BINARY": r"C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe"})  # Update with your ImageMagick path
+
 # Paths
 flags_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\Assets\Flags"
 templates_path = r"C:\Users\panjw_gco4a0t\Documents\GitHub\VideoAutomater\Assets\Templates"
