@@ -99,7 +99,7 @@ def get_next_video_id(output_path):
     return max(existing_ids) + 1
 
 # Number of videos 
-num_videos = 10
+num_videos = 5
 
 # Get the next available video ID
 next_video_id = get_next_video_id(output_path)
