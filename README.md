@@ -10,7 +10,7 @@ BUILT FOR YOUTUBE CHANNEL @mapsntimelines
 Planned + Organized by me
 written by chatgpt cause idk how to syntax stuff :(
 
-automatic shorts generator + Upload to youtube (Not working)
+automatic shorts generator + Upload to youtube 
 
 google dev console has very big limits on what you can do and stuff needa wait daily to upload with cmd (its also not done haha)
 
