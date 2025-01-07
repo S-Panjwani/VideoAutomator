@@ -99,7 +99,7 @@ def get_next_video_id(output_path):
     return max(existing_ids) + 1
 
 # Number of videos 
-num_videos = 5
+num_videos = 1
 
 # Get the next available video ID
 next_video_id = get_next_video_id(output_path)
@@ -108,7 +108,7 @@ next_video_id = get_next_video_id(output_path)
 params = [(random.choice(template_files), i, 170) for i in range(next_video_id, next_video_id + num_videos)]
 
 # Set the number of processes to run in parallel (fixed number)
-num_processes = 2  # Change this number to the desired number of parallel processes
+num_processes = 1  # Change this number to the desired number of parallel processes
 
 # Run the video generation in parallel
 if __name__ == '__main__':
