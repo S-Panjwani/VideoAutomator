@@ -1,17 +1,22 @@
-Organization github repository
-probably less commits cause everything locally, will only push if i need to back stuf up
+# Organization GitHub Repository
 
-it make temporary file audio and write it into a template and add text and flag and stuff
-might expand idk
+This repository supports the YouTube channel [@mapsntimelines](https://www.youtube.com/@mapsntimelines). 
 
-BUILT FOR YOUTUBE CHANNEL @mapsntimelines
+## Overview
+This project is all about automating the creation of YouTube Shorts. It takes audio files, puts them into a template, adds text, flags, and other stuff. It’s still a work in progress (WIP) and might be expanded later.
 
+## Workflow
+- Most of the work happens locally, with fewer commits to keep things clean.
+- Changes are pushed mainly for backup purposes.
 
-Planned + Organized by me
-written by chatgpt cause idk how to syntax stuff :(
+## Features
+- **Automatic Shorts Generator**: A tool that handles creating Shorts automatically.
+- **YouTube Upload**: Uses the Google Developer Console to upload videos, but there are daily limits to work around.
 
-automatic shorts generator + Upload to youtube 
+## Development Notes
+- I plan and organize the whole thing with help from ChatGPT for the coding parts.
+- I made this project in mid-2024, and have no plans to change it ever again.
 
-google dev console has very big limits on what you can do and stuff needa wait daily to upload with cmd (its also not done haha)
-
-WIP 
+## Acknowledgments
+- **Planning + Organizing**: Me
+- **Coding Syntaxing**: ChatGPT
